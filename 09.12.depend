@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1670668426 source:c:\users\kamil\documents\studia\semestr 3\programowanie obietkowe\09.12\main.cpp
+	<stdio.h>
+	<iostream>
+	<conio.h>
+	<string.h>
+	<windows.h>
+
