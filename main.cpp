@@ -290,7 +290,8 @@ void bazatowar::searchCena(float min,float max)
         currentFound=0;
         return 1
     }
-    else return 0; //niepotrzebny
+
+    return 0; //niepotrzebny
 }
 void bazatowar::sortCena()
 {
