@@ -67,7 +67,7 @@ public:
     void nextFound();
     void previousFound();
     bool searchCena(float min,float max); //<min,max>
-    void sortCena();
+    bool sortCena();
     void sortNazwa();
     void showCurrent(int x, int y);
     void showCurrentFound(int x, int y);
@@ -274,7 +274,7 @@ void bazatowar::setCurrent(int index)
         cout << "Podano element: " << index << endl;
         }
 }
-void bazatowar::searchCena(float min,float max)
+bool bazatowar::searchCena(float min,float max)
 {
     //zalecany bezpiecznik wtedy metoda nie bool lecz nie int
     licznoscFound=0;
@@ -288,25 +288,28 @@ void bazatowar::searchCena(float min,float max)
     if(licznoscFound)
     {
         currentFound=0;
-        return 1
+        return 1;
     }
 
     return 0; //niepotrzebny
 }
-void bazatowar::sortCena()
+bool bazatowar::sortCena()
 {
     if(licznosc>1)
     {
         towar pom;
         for(int nr=1;nr<licznosc;nr++)
             for(i=0;i<licznosc-nr;i++)
-                if(tab[i].getCena().tab[i+1].getCena())
-        {
-            pom=tab[i];
-            tab[i]=tab[i+1];
-            tab[i+1]=pom;
-        }
+                if(tab[i].getCena()>tab[i+1].getCena())
+                {
+                    pom=tab[i];
+                    tab[i]=tab[i+1];
+                    tab[i+1]=pom;
+                }
+    return 1;
     }
+    else
+        return 0;
 }
 void bazatowar::sortNazwa()
 {
@@ -360,7 +363,7 @@ int main()
     cout<<"Ile elementow w tablicy?";
     cin>>rozmiar;
     cin.ignore();
-    bazatowar baza(rozmiar), baza2;
+    bazatowar baza(rozmiar);
 
     do
     {
